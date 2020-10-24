@@ -42,9 +42,15 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
     overflowY: 'auto  ',
   },
-  first: {
+  firstDesktop: {
     flex: '1 0 200px',
     padding: '15%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  firstMobile: {
+    flex: '1 0 200px',
+    padding: '5%',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -66,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Texter = ({ props: { onSend = () => {}, textsList = [] } = {} }) => {
+const Texter = ({ props: { onSend = () => {}, textsList = [], mobile = false } = {} }) => {
   const classes = useStyles()
   const [text, setText] = useState('')
   const [selectedText, setSelectedText] = useState(null)
@@ -93,7 +99,7 @@ const Texter = ({ props: { onSend = () => {}, textsList = [] } = {} }) => {
   }
 
   return (
-    <div className={classes.first}>
+    <div className={mobile ? classes.firstMobile : classes.firstDesktop}>
       <TextsList props={{ textsList }} />
       <InputField props={{ text, onChange, onEnter, selectLastMessage }} />
     </div>

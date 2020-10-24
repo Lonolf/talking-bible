@@ -1,8 +1,8 @@
 import store from 'redux/store'
 import actions from 'redux/actions'
-const { getState, dispatch } = store
+import responses from 'assets/responses'
 
-const capitalize = text => text[0].toUpperCase() + text.slice(1)
+const { getState, dispatch } = store
 
 const textsElaborateNewText = ({ text, texter }) => {
   try {
@@ -41,7 +41,15 @@ const textsElaborateCommand = ({ text }) => {
           texter: 'system',
         }))
       }
+      return { text }
+    }
 
+    if (text.includes('help') || text.includes('guida') || text.includes('aiuto')) {
+      dispatch(actions.navigationNavigate('guide'))
+      dispatch(actions.texts_createText({
+        text: 'Apro la guida',
+        texter: 'system',
+      }))
       return { text }
     }
 
@@ -54,35 +62,28 @@ const textsElaborateCommand = ({ text }) => {
   }
 }
 
-const calcResponse = ({
-  text = '',
-  character: { name = '', problem = '', sons = [] } = {},
-}) => {
+const calcResponse = ({ text = '', character = {} }) => {
   try {
     text = text.toLowerCase().replace(/[^\w\s\d]/gi, '')
 
-    if (text === 'ciao')
-      return 'Ciao, piacere di conoscerti'
-
-    if (text === 'salve')
-      return 'Oh oh, amico amico, salve lo dici a tua sorella! 😉'
-
-    if (text.includes('nome') || text.includes('chiami'))
-      return `Il mio nome è ${capitalize(name)}`
-
-    if (text.includes('problema'))
-      return problem !== '' ? `Il mio problema è che ${problem}` : 'Nulla di particolare, grazie'
-
-    if (text.includes('figli'))
-      return sons.length === 0 ? 'Non ho figli'
-        : sons.length === 1 ? `Ho un figlio, ${capitalize(sons[0])}`
-          : `Ho ${sons.length} figli, ${sons.map(name => capitalize(name)).join(', ')}`
-
-    return 'Mi dispiace, non ho capito'
+    return parseResponses({ text, responses: responses({ character }) })
   } catch (error) {
     console.error(error)
   }
 }
+
+const parseResponses = ({ text = '', responses = [] }) => {
+  for (let response of responses)
+    if (testResponse({ method: response[0], base: response[1], text }))
+      return response[2]
+
+  return 'Mi dispiace, non ho capito'
+}
+
+const testResponse = ({ method, base = '', text = '' }) =>
+  method === 'identity' ? text === base
+    : method === 'includes' ? text.includes(base)
+      : false
 
 export default {
   textsElaborateNewText,

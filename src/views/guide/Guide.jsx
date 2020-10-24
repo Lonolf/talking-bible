@@ -23,10 +23,11 @@ const Guide = () => {
   const classes = useStyles()
   const page = useSelector(state => state.navigation.pages[state.navigation.pages.length - 1])
   const dispatch = useDispatch()
+  const mobile = useSelector(state => state.navigation.dimensions.mobile)
 
   const onClose = () => dispatch(actions.navigationGoBack())
 
-  if (page !== 'guide')
+  if (page !== 'guide' && !mobile)
     return (
       <Fab
         className={classes.fab}
@@ -36,12 +37,14 @@ const Guide = () => {
         <MenuBook />
       </Fab>
     )
-  else
+  else if (page === 'guide')
     return (
       <Modal onClick={onClose}>
         <Button color='primary' variant='outlined' onClick={onClose}>CLOSE</Button>
       </Modal>
     )
+  else
+    return null
 }
 
 export default Guide
