@@ -1,42 +1,42 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
-import { useSelector, useDispatch } from 'react-redux'
-import actions from 'redux/actions'
+import { useSelector } from 'react-redux'
 
-import translator from '@bit/lonolf.test.translator'
+import translator from 'utility/translator'
 
 import PhotoViewer from './components/PhotoViewer'
 import InputBox from './components/InputBox'
 
-import charactersList from 'assets/objects'
+import CharactersListChooser from './components/CharactersListChooser'
 
 const useStyles = makeStyles((theme) => ({
   first: {
     width: '100%',
     height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
   second: {
     width: '100%',
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-  }
+  },
 }))
 
 const Character = () => {
   const classes = useStyles()
-  const dispatch = useDispatch()
-  const character = useSelector(state => state.character)
+  const character = useSelector(state => state.characters.character)
+  const charactersList = useSelector(state => state.characters.charactersList)
 
-  useEffect(() => {
-    if (character.name == null)
-      dispatch(actions.character_setCharacter(charactersList.first))
-  })
-
-  if (character.name == null)
+  if (charactersList == null)
+    return (
+      <CharactersListChooser />
+    )
+  else if (character?.name == null)
     return (
       <div>
         <Typography variant='h4'>{translator.fromLabel('character_noCharacterSelected_warning')}</Typography>

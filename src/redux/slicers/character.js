@@ -1,15 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
-export const character = createSlice({
-  name: 'character',
+import charactersLists from 'assets/characters'
+import { findDefaultCharacter } from 'redux/logic/charactersLogic'
+
+export const characters = createSlice({
+  name: 'characters',
   initialState: {
-    name: null,
+    character: null,
+    charactersList: null,
+    charactersListsNames: Object.keys(charactersLists),
   },
   reducers: {
-    character_setCharacter: (state, { type, payload }) => {
-      return payload
+    characters_setCharacter: (state, { payload }) => {
+      state.character = state.charactersList[payload]
+    },
+    characters_setCharactersList: (state, { payload }) => {
+      try {
+        if (charactersLists[payload] != null) {
+          state.charactersList = charactersLists[payload]
+          state.character = findDefaultCharacter(charactersLists[payload])
+        } else {
+          throw new Error('Characters List "' + String(payload) + '" not found')
+        }
+      } catch (error) {
+        console.error(error)
+      }
     },
   },
-});
+})
 
-export default character
+export default characters

@@ -1,15 +1,31 @@
-import { english } from 'locales/english.js'
-import { italian } from 'locales/italian.js'
+import languages from 'locales'
 
 class Translator {
   constructor() {
-    this.language = navigator.language === 'it-IT' ? italian : english
+    this.language = this.getLanguage({ languages, locale: navigator.locale })
     this.unmatchedLabels = new Set()
     this.printUnmatchedLabels = false // set to true to debug missing label
   }
 
-  setLanguage = (language) => {
-    this.language = language
+  getLanguage = ({ languages = [], locale = 'en-EN' }) => {
+    for (let language of languages)
+      if (language.locale === navigator.language)
+        return language
+
+    for (let language of languages)
+      if (language.default)
+        return language
+
+    for (let language of languages)
+      return language
+
+    return {}
+  }
+
+  setLanguage = locale => {
+    for (let language of languages)
+      if (language.locale === locale)
+        this.language = language
   }
 
   fromLabel = (label) => {
@@ -17,7 +33,7 @@ class Translator {
       return this.language[label]
     if (this.printUnmatchedLabels) {
       this.unmatchedLabels.add(label)
-      console.log('unmatchedLabels', this.unmatchedLabels)
+      console.debug('unmatchedLabels', this.unmatchedLabels)
     }
     return label
   }

@@ -1,4 +1,5 @@
 const first = {
+  default: true,
   name: 'first',
   sons: ['second'],
   problem: 'sono sempre il primo dell\'elenco',

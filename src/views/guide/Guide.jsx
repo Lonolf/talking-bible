@@ -9,7 +9,7 @@ import MenuBook from '@material-ui/icons/MenuBook'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from 'redux/actions'
 
-import Modal from '@bit/lonolf.test.modal'
+import Modal from 'components/modal/Modal'
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -39,7 +39,7 @@ const Guide = () => {
   else
     return (
       <Modal onClick={onClose}>
-        <Button onClick={onClose}>CLOSE</Button>
+        <Button color='primary' variant='outlined' onClick={onClose}>CLOSE</Button>
       </Modal>
     )
 }

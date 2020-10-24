@@ -1,4 +1,3 @@
-import objects from 'assets/objects'
 import store from 'redux/store'
 import actions from 'redux/actions'
 const { getState, dispatch } = store
@@ -7,7 +6,7 @@ const capitalize = text => text[0].toUpperCase() + text.slice(1)
 
 const textsElaborateNewText = ({ text, texter }) => {
   try {
-    const character = getState().character
+    const character = getState().characters.character
     dispatch(actions.texts_createText({ text, texter }))
 
     if (text.match(/^comando/)) {
@@ -24,12 +23,14 @@ const textsElaborateNewText = ({ text, texter }) => {
 
 const textsElaborateCommand = ({ text }) => {
   try {
-    const keys = Object.keys(objects)
-
+    const charactersList = getState().characters.charactersList
+    const charactersNames = Object.keys(charactersList)
     if (text.match('personaggio')) {
-      const foundKey = keys.find(key => text.includes(key))
+      console.log(charactersNames)
+      const foundKey = charactersNames.find(key => text.includes(key))
+      console.log(foundKey)
       if (foundKey != null) {
-        dispatch(actions.character_setCharacter(objects[foundKey]))
+        dispatch(actions.characters_setCharacter(foundKey))
         dispatch(actions.texts_createText({
           text: 'Cambio a ' + foundKey,
           texter: 'system',
@@ -58,7 +59,13 @@ const calcResponse = ({
   character: { name = '', problem = '', sons = [] } = {},
 }) => {
   try {
-    text = text.toLowerCase()
+    text = text.toLowerCase().replace(/[^\w\s\d]/gi, '')
+
+    if (text === 'ciao')
+      return 'Ciao, piacere di conoscerti'
+
+    if (text === 'salve')
+      return 'Oh oh, amico amico, salve lo dici a tua sorella! 😉'
 
     if (text.includes('nome') || text.includes('chiami'))
       return `Il mio nome è ${capitalize(name)}`

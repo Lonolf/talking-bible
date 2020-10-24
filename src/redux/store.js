@@ -6,7 +6,7 @@ import texts from './slicers/texts'
 export default configureStore({
   reducer: {
     navigation: navigation.reducer,
-    character: character.reducer,
+    characters: character.reducer,
     texts: texts.reducer,
   },
-});
+})
