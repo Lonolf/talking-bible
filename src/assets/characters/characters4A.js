@@ -21,7 +21,7 @@ const Abramo = {
   father: 'Terach',
   wifes: ['Sarah'],
   sons: ['Ismaele', 'Isacco'],
-  
+
   problem: 'Non ho figli maschi',
   importance: 'Sono il capostipite degli Ebrei',
 }
