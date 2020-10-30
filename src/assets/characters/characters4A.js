@@ -4,6 +4,7 @@ const Terach = {
 }
 
 const Abramo = {
+  default: true,
   name: 'Abramo',
   surname: null,
 
@@ -13,6 +14,7 @@ const Abramo = {
 
   // Geographical data
   motherland: 'Mesopotamia',
+  domicile: null,
 
   profession: 'Pastore',
   home: 'Nomade',
@@ -22,8 +24,15 @@ const Abramo = {
   wifes: ['Sarah'],
   sons: ['Ismaele', 'Isacco'],
 
-  problem: 'Non ho figli maschi',
+  problem: 'non ho figli maschi',
   importance: 'Sono il capostipite degli Ebrei',
+}
+
+const Sarah = {
+  name: 'Sarah',
+  husband: 'Abramo',
+  sons: ['Isacco'],
+  problem: 'Ho paura che Ismaele soppianti Isacco',
 }
 
 const Isacco = {
