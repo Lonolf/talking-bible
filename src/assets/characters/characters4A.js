@@ -50,6 +50,7 @@ const Giacobbe = {
 export default {
   Terach,
   Abramo,
+  Sarah,
   Isacco,
   Giacobbe,
 }

@@ -6,8 +6,9 @@ export default ({
     wifes = [],
     domicile,
     profession,
-    importance
-  } = {} }) => ([
+    importance,
+  } = {},
+}) => ([
   ['identity', 'ciao', 'Ciao, piacere di conoscerti'],
   ['identity', 'salve', 'Oh oh, amico amico, salve lo dici a tua sorella! 😉'],
   ['includes', 'importante', importance == null ? 'Mi dispiace, devi scoprirlo tu.' : importance],
