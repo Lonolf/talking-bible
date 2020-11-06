@@ -36,6 +36,7 @@ const Ismaele = {
 }
 
 const Sarah = {
+  genre: 'f',
   name: 'Sarah',
   husband: 'Abramo',
   sons: ['Isacco'],
