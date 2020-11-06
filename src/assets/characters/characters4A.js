@@ -28,10 +28,26 @@ const Abramo = {
   importance: 'Sono il capostipite degli Ebrei',
 }
 
+const Ismaele = {
+  name: 'Ismaele',
+  father: 'Abramo',
+  mother: 'Agar',
+  problem: 'Non sono figlio di Sarah, ma di una schiava',
+}
+
+const Sarah = {
+  name: 'Sarah',
+  husband: 'Abramo',
+  sons: ['Isacco'],
+  problem: 'Ho paura che Ismaele soppianti Isacco',
+}
+
 const Isacco = {
   name: 'Isacco',
   father: 'Abramo',
   sons: ['Esaù', 'Giacobbe'],
+  mother: 'Sarah',
+  problem: 'Mio padre era pronto a sacrificarmi a Dio',
 }
 
 const Giacobbe = {
@@ -43,6 +59,8 @@ const Giacobbe = {
 export default {
   Terach,
   Abramo,
+  Sarah,
   Isacco,
   Giacobbe,
+  Ismaele,
 }
