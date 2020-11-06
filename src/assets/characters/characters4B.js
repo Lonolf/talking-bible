@@ -25,7 +25,24 @@ const Abramo = {
   problem: 'Nonostante io e mia moglie siamo sposati da molti anni, non abbiamo figli maschi.',
 }
 
+const Ismaele = {
+  name: 'Ismaele',
+  father: 'Abramo',
+  mother: 'Agar',
+  problem: 'Non sono figlio di Sarah, ma di una schiava',
+}
+
+const Isacco = {
+  name: 'Isacco',
+  father: 'Abramo',
+  mother: 'Sarah',
+  problem: '',
+}
+
+
 export default {
   Terach,
   Abramo,
+  Ismaele,
+  Isacco,
 }
