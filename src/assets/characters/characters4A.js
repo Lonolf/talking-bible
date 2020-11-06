@@ -28,13 +28,6 @@ const Abramo = {
   importance: 'Sono il capostipite degli Ebrei',
 }
 
-const Sarah = {
-  name: 'Sarah',
-  husband: 'Abramo',
-  sons: ['Isacco'],
-  problem: 'Ho paura che Ismaele soppianti Isacco',
-}
-
 const Isacco = {
   name: 'Isacco',
   father: 'Abramo',

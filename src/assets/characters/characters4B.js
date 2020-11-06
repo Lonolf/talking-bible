@@ -25,6 +25,13 @@ const Abramo = {
   problem: 'Nonostante io e mia moglie siamo sposati da molti anni, non abbiamo figli maschi.',
 }
 
+const Sarah = {
+  name: 'Sarah',
+  husband: 'Abramo',
+  sons: ['Isacco'],
+  problem: 'Ho paura che Ismaele soppianti Isacco',
+}
+
 const Ismaele = {
   name: 'Ismaele',
   father: 'Abramo',
@@ -36,13 +43,13 @@ const Isacco = {
   name: 'Isacco',
   father: 'Abramo',
   mother: 'Sarah',
-  problem: '',
+  problem: 'Mio padre era pronto a sacrificarmi a Dio',
 }
-
 
 export default {
   Terach,
   Abramo,
+  Sarah,
   Ismaele,
   Isacco,
 }
