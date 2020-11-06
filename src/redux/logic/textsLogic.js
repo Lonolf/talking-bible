@@ -9,7 +9,7 @@ const textsElaborateNewText = ({ text, texter }) => {
     const character = getState().characters.character
     dispatch(actions.texts_createText({ text, texter }))
 
-    if (text.match(/^comando/)) {
+    if (text.match(/^cmd/)) {
       dispatch(textsElaborateCommand({ text }))
     } else {
       const response = calcResponse({ text, character })
@@ -25,7 +25,7 @@ const textsElaborateCommand = ({ text }) => {
   try {
     const charactersList = getState().characters.charactersList
     const charactersNames = Object.keys(charactersList)
-    if (text.match('personaggio')) {
+    if (text.match('cmd pers')) {
       console.log(charactersNames)
       const foundKey = charactersNames.find(key => text.includes(key))
       console.log(foundKey)
