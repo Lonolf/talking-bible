@@ -4,7 +4,6 @@ import actions from 'redux/actions'
 const { dispatch } = store
 
 const handleResize = () => {
-  console.log(handleResize)
   dispatch(actions.navigation_setDimensions({ mobile: window.innerWidth <= 800, height: window.innerHeight, width: window.innerWidth }))
 }
 

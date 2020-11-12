@@ -1,3 +1,10 @@
+const Adamo = {
+  name: 'Adamo',
+  father: null,
+  mother: null,
+  sons: ['Caino', 'Abele', 'Set'],
+}
+
 const Terach = {
   name: 'Terach',
   surname: null,
@@ -48,6 +55,7 @@ const Isacco = {
 }
 
 export default {
+  Adamo,
   Terach,
   Abramo,
   Sarah,
