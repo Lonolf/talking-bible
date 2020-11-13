@@ -65,7 +65,6 @@ const Isacco = {
   sons: ['Esaù', 'Giacobbe'],
   mother: 'Sarah',
   wifes: ['Rebecca'],
-  sons: ['Esaù', 'Giacobbe'],
   problem: 'Mio padre era pronto a sacrificarmi a Dio',
   nameMeaning: 'Io/Dio ho riso',
 }

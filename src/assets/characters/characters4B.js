@@ -51,7 +51,6 @@ const Ismaele = {
 const Isacco = {
   name: 'Isacco',
   father: 'Abramo',
-  sons: ['Esaù', 'Giacobbe'],
   mother: 'Sarah',
   wifes: ['Rebecca'],
   sons: ['Esaù', 'Giacobbe'],
