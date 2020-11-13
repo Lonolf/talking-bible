@@ -1,6 +1,7 @@
 export default ({
   character: {
     name = '',
+    nameMeaning,
     genre = 'm',
     problem = '',
     father,
@@ -10,6 +11,7 @@ export default ({
     husband,
     domicile,
     profession,
+    status,
     importance,
   } = {},
 }) => ([
@@ -23,10 +25,11 @@ export default ({
   ['includes', 'mamma', name === 'Adamo' || name === 'Eva' ? 'Non ho una mamma' : mother == null ? 'Mi dispiace, non conosco mia madre' : `Mia madre si chiama ${mother}`],
   ['includes', 'moglie', genre === 'f' ? '...' : wifes.length === 0 ? 'Non sono sposato' : wifes.length === 1 ? `Ho una moglie, ${wifes[0]}` : `Ho ${wifes.length} mogli, ${wifes.join(', ')}`],
   ['includes', 'marito', genre === 'm' ? '...' : husband == null ? 'Non ho marito' : `Mio marito si chiama ${husband}`],
-  ['includes', 'figli', sons.length === 0 ? 'Non ho figli' : sons.length === 1 ? `Ho un figlio, ${sons[0]}` : `Ho ${sons.length} figli, ${sons.join(', ')}`],
+  ['includes', 'figli', sons.length === 0 ? 'Non ho figli' : sons.length === 1 ? `Ho un figlio, ${sons[0]}` : sons.includes('...') ? `Ho molti figli, tra cui ${sons.filter(son => son !== '...').join(', ')}` : `Ho ${sons.length} figli, ${sons.join(', ')}`],
 
   ['includes', 'lavoro', profession == null ? 'Non ho una professione particolare' : `Il mio lavoro è fare il ${profession.toLowerCase()}`],
-  ['includes', 'nome', `Il mio nome è ${name}`],
-  ['includes', 'chiami', `Il mio nome è ${name}`],
+  ['identity', 'chi sei', status == null ? 'Nessuno di importante' : genre === 'f' ? `Io sono una ${status}` : `Io sono un  ${status}`],
+  ['includes', 'nome', `Il mio nome è ${name}${nameMeaning != null ? `, che significa: "${nameMeaning}"` : ''}`],
+  ['includes', 'chiami', `Il mio nome è ${name}${nameMeaning != null ? `, che significa: "${nameMeaning}"` : ''}`],
   ['includes', 'problema', problem !== '' ? `Il mio problema è che ${problem}` : 'Nulla di particolare, grazie'],
 ])

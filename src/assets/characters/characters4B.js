@@ -2,7 +2,8 @@ const Adamo = {
   name: 'Adamo',
   father: null,
   mother: null,
-  sons: ['Caino', 'Abele', 'Set'],
+  wifes: ['Eva'],
+  sons: ['Caino', 'Abele', 'Set', '...'],
 }
 
 const Terach = {
@@ -50,8 +51,12 @@ const Ismaele = {
 const Isacco = {
   name: 'Isacco',
   father: 'Abramo',
+  sons: ['Esaù', 'Giacobbe'],
   mother: 'Sarah',
+  wifes: ['Rebecca'],
+  sons: ['Esaù', 'Giacobbe'],
   problem: 'Mio padre era pronto a sacrificarmi a Dio',
+  nameMeaning: 'Io/Dio ho riso',
 }
 
 export default {

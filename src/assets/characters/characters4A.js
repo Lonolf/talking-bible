@@ -1,3 +1,19 @@
+const Adamo = {
+  name: 'Adamo',
+  father: null,
+  mother: null,
+  wifes: ['Eva'],
+  sons: ['Caino', 'Abele', 'Set', '...'],
+}
+
+const Eva = {
+  name: 'Eva',
+  father: null,
+  mother: null,
+  husband: 'Adamo',
+  sons: ['Caino', 'Abele', 'Set', '...'],
+}
+
 const Terach = {
   name: 'Terach',
   sons: ['Abramo'],
@@ -16,9 +32,9 @@ const Abramo = {
   motherland: 'Mesopotamia',
   domicile: null,
 
-  profession: 'Pastore',
-  home: 'Nomade',
-  status: 'Capotribù',
+  profession: 'pastore',
+  home: 'nomade',
+  status: 'capotribù',
 
   father: 'Terach',
   wifes: ['Sarah'],
@@ -48,7 +64,10 @@ const Isacco = {
   father: 'Abramo',
   sons: ['Esaù', 'Giacobbe'],
   mother: 'Sarah',
+  wifes: ['Rebecca'],
+  sons: ['Esaù', 'Giacobbe'],
   problem: 'Mio padre era pronto a sacrificarmi a Dio',
+  nameMeaning: 'Io/Dio ho riso',
 }
 
 const Giacobbe = {
@@ -58,6 +77,8 @@ const Giacobbe = {
 }
 
 export default {
+  Adamo,
+  Eva,
   Terach,
   Abramo,
   Sarah,
