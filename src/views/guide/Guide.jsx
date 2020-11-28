@@ -11,7 +11,7 @@ import MenuBook from '@material-ui/icons/MenuBook'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from 'redux/actions'
 
-import Modal from 'components/modal/Modal'
+import Modal from '@bit/lonolf.react-small-components.modal'
 
 const useStyles = makeStyles((theme) => ({
   fab: {
