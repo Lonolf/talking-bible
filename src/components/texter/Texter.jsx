@@ -10,6 +10,7 @@ const textStyle = {
     backgroundColor: 'lightGreen',
     color: 'white',
     marginLeft: '40%',
+    whiteSpace: 'pre-wrap',
   },
   system: {
     textAlign: 'center',
@@ -17,12 +18,14 @@ const textStyle = {
     color: 'white',
     marginLeft: '20%',
     marginRight: '20%',
+    whiteSpace: 'pre-wrap',
   },
   character: {
     backgroundColor: 'lightBlue',
     textAlign: 'left',
     color: 'white',
     marginRight: '40%',
+    whiteSpace: 'pre-wrap',
   },
 }
 

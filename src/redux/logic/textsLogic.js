@@ -9,11 +9,14 @@ const textsElaborateNewText = ({ text, texter }) => {
     const character = getState().characters.character
     dispatch(actions.texts_createText({ text, texter }))
 
-    if (text.match(/^cmd/)) {
+    if (text.includes('help') || text.includes('guida') || text.includes('aiuto')) {
+      dispatch(actions.navigationNavigate('guide'))
+      dispatch(actions.texts_createText({ text: 'Apro la guida', texter: 'system' }))
+      return { text }
+    } else if (text.match(/^cmd/)) {
       dispatch(textsElaborateCommand({ text }))
     } else {
       const response = calcResponse({ text, character })
-
       dispatch(actions.texts_createText({ text: response, texter: character.name }))
     }
   } catch (error) {
@@ -23,42 +26,76 @@ const textsElaborateNewText = ({ text, texter }) => {
 
 const textsElaborateCommand = ({ text }) => {
   try {
-    const charactersList = getState().characters.charactersList
-    const charactersNames = Object.keys(charactersList)
-    if (text.match('cmd pers')) {
-      console.log(charactersNames)
-      const foundKey = charactersNames.find(key => text.includes(key))
-      console.log(foundKey)
-      if (foundKey != null) {
-        dispatch(actions.characters_setCharacter(foundKey))
-        dispatch(actions.texts_createText({
-          text: 'Cambio a ' + foundKey,
-          texter: 'system',
-        }))
-      } else {
-        dispatch(actions.texts_createText({
-          text: 'Personaggio non trovato',
-          texter: 'system',
-        }))
-      }
-      return { text }
-    }
-
-    if (text.includes('help') || text.includes('guida') || text.includes('aiuto')) {
-      dispatch(actions.navigationNavigate('guide'))
+    if (/^cmd props$/.test(text))
+      cmdProps()
+    if (/^cmd pers$/.test(text))
+      cmdPers()
+    else if (/^cmd pers [a-zA-Z]+/.test(text))
+      cmdChangePers({ text })
+    else
       dispatch(actions.texts_createText({
-        text: 'Apro la guida',
+        text: '"' + text + '" non riconosciuto',
         texter: 'system',
       }))
-      return { text }
-    }
-
-    dispatch(actions.texts_createText({
-      text: '"' + text + '" non riconosciuto',
-      texter: 'system',
-    }))
   } catch (error) {
     console.error(error)
+  }
+}
+
+const cmdProps = () => {
+  const selectedCharacter = getState().characters.character
+
+  dispatch(actions.texts_createText({
+    text: 'Proprietà di ' + selectedCharacter.name,
+    texter: 'system',
+  }))
+
+  let response = ''
+  for (let prop in selectedCharacter)
+    response = response + prop + ': ' + selectedCharacter[prop] + ' \n'
+  
+  dispatch(actions.texts_createText({
+    text: response,
+    texter: 'system',
+  }))
+}
+
+const cmdPers = () => {
+  const charactersNames = Object.keys(getState().characters.charactersList)
+
+  dispatch(actions.texts_createText({
+    text: 'Elenco di tutti i personaggi',
+    texter: 'system',
+  }))
+ 
+  dispatch(actions.texts_createText({
+    text: charactersNames.sort().join(', '),
+    texter: 'system',
+  }))
+}
+
+const cmdChangePers = ({ text }) => {
+  const selectedCharacter = getState().characters.character
+  const charactersNames = Object.keys(getState().characters.charactersList)
+
+  const foundKey = charactersNames.find(key => text.includes(key))
+
+  if (foundKey != null && foundKey === selectedCharacter.name) {
+    dispatch(actions.texts_createText({
+      text: '😝',
+      texter: 'system',
+    }))
+  } else if (foundKey != null) {
+    dispatch(actions.characters_setCharacter(foundKey))
+    dispatch(actions.texts_createText({
+      text: 'Cambio a ' + foundKey,
+      texter: 'system',
+    }))
+  } else {
+    dispatch(actions.texts_createText({
+      text: 'Personaggio non trovato',
+      texter: 'system',
+    }))
   }
 }
 

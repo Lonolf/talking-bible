@@ -50,12 +50,16 @@ const Guide = () => {
     )
   else if (page === 'guide')
     return (
-      <Modal onClick={onClose}>
-        <div className={classes.mainDiv}>
+      <Modal props={{ onClose }}>
+        <div className={classes.mainDiv} onClick={onClose}>
           <Typography variant='h4'>Comandi</Typography>
+          <div style={{ height: 15 }} />
+          <Typography variant='h5'>Visualizzare tutti i personaggi: cmd pers</Typography>
           <div style={{ height: 15 }} />
           <Typography variant='h5'>Cambio personaggio: cmd pers "nome"</Typography>
           <Typography variant='subtitle1'>es: cmd pers Sarah</Typography>
+          <div style={{ height: 15 }} />
+          <Typography variant='h5'>Visualizzare tutte le propietà del personaggio: cmd props</Typography>
         </div>
         <Toolbar className={classes.bottomBar}>
           <Button color='primary' variant='outlined' onClick={onClose}>CLOSE</Button>
