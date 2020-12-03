@@ -58,6 +58,30 @@ const Isacco = {
   nameMeaning: 'Io/Dio ho riso',
 }
 
+const Rebecca = {
+  name: 'Rebecca',
+  husband: 'Isacco',
+  sons: ['Esaù', 'Giacobbe'],
+  problem: 'Voglio che Giacobbe diventi il primogenito',
+}
+
+const Giacobbe = {
+  name: 'Giacobbe',
+  father: 'Isacco',
+  mother: 'Rebecca',
+  brothers: ['Esaù'],
+  problem: 'Mio zio mi ha fatto sposare sua figlia maggiore con l\'inganno',
+}
+
+const Esaù  = {
+  name: 'Esaù',
+  father: 'Isacco',
+  mother: 'Rebecca',
+  brothers: ['Giacobbe'],
+  problem: 'Mio fratello mi ha rubato primogenitura e la benedizione di mio padre',
+}
+
+
 export default {
   Adamo,
   Terach,
@@ -65,4 +89,7 @@ export default {
   Sarah,
   Ismaele,
   Isacco,
+  Rebecca,
+  Giacobbe,
+  Esaù,
 }
