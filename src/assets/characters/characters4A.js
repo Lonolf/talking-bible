@@ -72,7 +72,11 @@ const Isacco = {
 const Giacobbe = {
   name: 'Giacobbe',
   father: 'Isacco',
-  sons: ['Ruben', 'Giuda', 'Giuseppe', 'Beniamino'],
+  mother: 'Rebecca',
+  brothers: ['Esaù'],
+  wifes: ['Lia', 'Rebecca'],
+  sons: ['Ruben', 'Giuda', 'Giuseppe', 'Beniamino', '...'],
+  problem: 'Mio  zio mi ha fatto sposare sua figlia maggiore con l\'inganno',
 }
 
 export default {
