@@ -11,7 +11,7 @@ import MenuBook from '@material-ui/icons/MenuBook'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from 'redux/actions'
 
-import Modal from '@bit/lonolf.react-small-components.modal'
+import Modal from '@bit/blackbytes.components.modal'
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bottomBar: {
     width: '100%',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
 }))
 
@@ -56,7 +56,7 @@ const Guide = () => {
           <div style={{ height: 15 }} />
           <Typography variant='h5'>Visualizzare tutti i personaggi: cmd pers</Typography>
           <div style={{ height: 15 }} />
-          <Typography variant='h5'>Cambio personaggio: cmd pers "nome"</Typography>
+          <Typography variant='h5'>{'Cambio personaggio: cmd pers <<nome>>'}</Typography>
           <Typography variant='subtitle1'>es: cmd pers Sarah</Typography>
           <div style={{ height: 15 }} />
           <Typography variant='h5'>Visualizzare tutte le propietà del personaggio: cmd props</Typography>
