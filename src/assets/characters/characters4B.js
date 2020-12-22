@@ -71,6 +71,8 @@ const Giacobbe = {
   mother: 'Rebecca',
   brothers: ['Esaù'],
   problem: 'Mio zio mi ha fatto sposare sua figlia maggiore con l\'inganno',
+  wifes: ['Lia', 'Rachele'],
+  sons: ['Ruben', 'Giuda', 'Giuseppe', 'Beniamino', '...']
 }
 
 const Esaù  = {
@@ -81,6 +83,15 @@ const Esaù  = {
   problem: 'Mio fratello mi ha rubato primogenitura e la benedizione di mio padre',
 }
 
+const Giuseppe = {
+  name: 'Giuseppe',
+  father: 'Giacobbe',
+  mother: 'Rachele',
+  wifes: ['Asenat'],
+  sons: ['Efraim', 'Manasse'],
+  problem: 'I miei fratelli mi hanno venduto come schiavo',
+  status: 'Vicerè d\'Egitto',
+}
 
 export default {
   Adamo,
@@ -92,4 +103,5 @@ export default {
   Rebecca,
   Giacobbe,
   Esaù,
+  Giuseppe,
 }
