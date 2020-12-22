@@ -79,6 +79,16 @@ const Giacobbe = {
   problem: 'Mio  zio mi ha fatto sposare sua figlia maggiore con l\'inganno',
 }
 
+const Giuseppe = {
+  name: 'Giuseppe',
+  father: 'Giacobbe',
+  mother: 'Rachele',
+  wifes: ['Asenat'],
+  sons: ['Efraim', 'Manasse'],
+  problem: 'I miei fratelli mi hanno venduto come schiavo',
+  status: 'Vicerè d\'Egitto',
+}
+
 export default {
   Adamo,
   Eva,
@@ -88,4 +98,5 @@ export default {
   Isacco,
   Giacobbe,
   Ismaele,
+  Giuseppe,
 }
