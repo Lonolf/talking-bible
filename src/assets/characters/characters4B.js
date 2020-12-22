@@ -72,7 +72,7 @@ const Giacobbe = {
   brothers: ['Esaù'],
   problem: 'Mio zio mi ha fatto sposare sua figlia maggiore con l\'inganno',
   wifes: ['Lia', 'Rachele'],
-  sons: ['Ruben', 'Giuda', 'Giuseppe', 'Beniamino', '...']
+  sons: ['Ruben', 'Giuda', 'Giuseppe', 'Beniamino', '...'],
 }
 
 const Esaù  = {
