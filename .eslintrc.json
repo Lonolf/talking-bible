@@ -3,7 +3,8 @@
     "./react.js"
   ],
   "plugins": [
-    "react"
+    "react",
+    "standard"
   ],
   "parserOptions": {
     "ecmaFeatures": {

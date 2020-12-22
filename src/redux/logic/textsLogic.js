@@ -5,6 +5,7 @@ import responses from 'assets/responses'
 const { getState, dispatch } = store
 
 const textsElaborateNewText = ({ text, texter }) => {
+  dispatch(actions.startLoading({ loadingId: 'getSettings', payload: { text, texter } }))
   try {
     const character = getState().characters.character
     dispatch(actions.texts_createText({ text, texter }))
@@ -22,6 +23,7 @@ const textsElaborateNewText = ({ text, texter }) => {
   } catch (error) {
     console.error(error)
   }
+  dispatch(actions.stopLoading('getSettings'))
 }
 
 const textsElaborateCommand = ({ text }) => {
